@@ -1,5 +1,7 @@
 package com.sda.weather.application;
 
+import java.util.List;
+
 public class WeatherController {
 
     private final WeatherService weatherService = new WeatherService();
@@ -9,5 +11,11 @@ public class WeatherController {
         return weather.toString();
 
 
+    }
+
+    public String showAddLocation() {
+        List<Weather> weathers = weatherService.showAddLocation();
+
+        return weathers.toString();
     }
 }

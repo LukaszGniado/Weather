@@ -27,13 +27,20 @@ public class WeatherClient {
                 case 1:
                     addNewEntry();
                     break;
-
+                case 2:
+                    showAddLocation();
+                    break;
                 case 0:
                     System.out.println("Goodbye!");
                     return;
 
             }
         }
+    }
+
+    private void showAddLocation() {
+        String response = weatherController.showAddLocation();
+        System.out.println("All entered locations: "+ response);
     }
 
     private void addNewEntry() {

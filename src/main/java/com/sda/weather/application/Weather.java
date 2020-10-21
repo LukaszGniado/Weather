@@ -1,14 +1,26 @@
 package com.sda.weather.application;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.Instant;
 
+@Entity
 public class Weather {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
     String name;
     double latitude;
     double longitude;
     String region;
     String country;
     Instant createDate;
+
+    public Weather() {
+    }
 
     public Weather(String name, double latitude, double longitude, String region, String country, Instant createDate) {
         this.name = name;
@@ -27,7 +39,7 @@ public class Weather {
                 ", 'longitude':'" + longitude + '\'' +
                 ", 'region':'" + region + '\'' +
                 ", 'country':'" + country + '\'' +
-                ", 'createDate':"+ createDate.toString()+ '\''+
+                ", 'createDate':" + createDate.toString() + '\'' +
                 '}';
     }
 }
