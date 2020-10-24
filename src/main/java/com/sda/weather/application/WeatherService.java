@@ -13,10 +13,10 @@ public class WeatherService {
         if (name == null || name.isEmpty()) {
             throw new RuntimeException("Content cannot be empty !");
         }
-        if (latitude == 0) {
+        if (latitude < -90 || latitude >90) {
             throw new RuntimeException("Enter a numeric value !");
         }
-        if (longitude == 0) {
+        if (longitude < -180 || longitude >180) {
             throw new RuntimeException("Enter a numeric value !");
         }
         if (region == null || region.isEmpty()) {
@@ -26,7 +26,7 @@ public class WeatherService {
             throw new RuntimeException("Content cannot be empty !");
         }
 
-weatherServiceClient.getWeather();
+
 
         Instant createdDate = Instant.now();
         Weather weather = new Weather(name, latitude, longitude, region, country, createdDate);

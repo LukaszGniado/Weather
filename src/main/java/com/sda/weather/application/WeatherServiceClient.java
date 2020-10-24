@@ -8,10 +8,6 @@ public class WeatherServiceClient {
 
          private final HttpClient httpClient = HttpClient.newHttpClient();
 
-    public getWeather() {
-        HttpRequest.newBuilder()
-                .GET()
-                .uri(URI.create())
-        httpClient.send()
+
     }
-}
+
