@@ -12,12 +12,12 @@ public class Weather {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
-    String name;
+    String name;    // todo rename to cityName
     double latitude;
     double longitude;
     String region;
     String country;
-    Instant createDate;
+    Instant createDate;     // todo to remove
 
     public Weather() {
     }

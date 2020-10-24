@@ -7,23 +7,21 @@ import java.util.List;
 
 public class WeatherController {
 
-    private final WeatherService weatherService = new WeatherService();
+    private final LocationService locationService = new LocationService();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
     public String addNewEntry(String name, double latitude, double longitude, String region, String country) {
-        Weather weather = weatherService.addNewEntry(name, latitude, longitude, region, country);
+        Weather weather = locationService.addNewLocation(name, latitude, longitude, region, country);
 
         try {
             return objectMapper.writeValueAsString(weather);
         }catch (JsonProcessingException e){
             throw new RuntimeException("...");
         }
-
-
     }
 
     public String showAddLocation() {
-        List<Weather> weathers = weatherService.showAddLocation();
+        List<Weather> weathers = locationService.showAddedLocations();
         return weathers.toString();
     }
 }

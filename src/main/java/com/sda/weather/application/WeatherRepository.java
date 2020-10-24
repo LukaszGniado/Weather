@@ -17,7 +17,8 @@ public class WeatherRepository {
 
     public WeatherRepository() {
         StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure().build();
+                .configure()
+                .build();
 
         sessionFactory = new MetadataSources(registry)
                 .buildMetadata()
@@ -36,12 +37,12 @@ public class WeatherRepository {
         return weather;
     }
 
+    // todo move to LocationRepository
     public List<Weather> showAddLocation() {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
 
         List<Weather> result = session.createQuery("FROM Weather").getResultList();
-
 
         transaction.commit();
         session.close();
